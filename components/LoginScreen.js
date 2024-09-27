@@ -1,19 +1,36 @@
-// src/screens/LoginScreen.js
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
-const LoginScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>Login</Text>
-    <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#aaa" />
-    <TextInput style={styles.input} placeholder="Password" secureTextEntry placeholderTextColor="#aaa" />
-    <TouchableOpacity style={styles.button} onPress={() => alert('Login')}>
-      <Text style={styles.buttonText}>Sign in</Text>
-    </TouchableOpacity>
-    <Text style={styles.link}>Forgot your password?</Text>
-    <Text style={styles.link}>Create new account</Text>
-  </View>
-);
+const LoginScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.loginTitle}>Login here</Text>
+      <Text style={styles.subtitle}>Welcome back you’ve been missed!</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#aaa"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        placeholderTextColor="#aaa"
+      />
+      <TouchableOpacity style={styles.loginButton} onPress={() => alert('Login')}>
+        <Text style={styles.loginButtonText}>Sign in</Text>
+      </TouchableOpacity>
+      <Text style={styles.forgotPassword}>Forgot your password?</Text>
+      <Text style={styles.createAccount}>Create new account</Text>
+      <View style={styles.socialContainer}>
+        <TouchableOpacity style={styles.socialButton}><AntDesign name="google" size={24} color="black" /></TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}><AntDesign name="facebook-square" size={24} color="black" /></TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}><AntDesign name="apple1" size={24} color="black" /></TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -23,10 +40,18 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
   },
-  title: {
+  loginTitle: {
     fontSize: 28,
     fontWeight: 'bold',
+    color: '#292929',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666666',
     marginBottom: 20,
+    textAlign: 'center',
   },
   input: {
     width: '100%',
@@ -35,20 +60,39 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     marginBottom: 20,
   },
-  button: {
+  loginButton: {
     backgroundColor: '#007bff',
     padding: 15,
     borderRadius: 8,
     width: '100%',
     alignItems: 'center',
   },
-  buttonText: {
+  loginButtonText: {
     color: '#fff',
     fontSize: 16,
   },
-  link: {
-    marginTop: 15,
+  forgotPassword: {
     color: '#007bff',
+    textAlign: 'center',
+    marginTop: 15,
+  },
+  createAccount: {
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+  socialButton: {
+    width: 50,
+    height: 50,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 25,
+    marginHorizontal: 10,
   },
 });
 

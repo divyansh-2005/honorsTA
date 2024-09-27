@@ -1,19 +1,42 @@
-// src/screens/RegisterScreen.js
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
-const RegisterScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>Create Account</Text>
-    <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#aaa" />
-    <TextInput style={styles.input} placeholder="Password" secureTextEntry placeholderTextColor="#aaa" />
-    <TextInput style={styles.input} placeholder="Confirm Password" secureTextEntry placeholderTextColor="#aaa" />
-    <TouchableOpacity style={styles.button} onPress={() => alert('Account Created')}>
-      <Text style={styles.buttonText}>Sign up</Text>
-    </TouchableOpacity>
-    <Text style={styles.link}>Already have an account?</Text>
-  </View>
-);
+const RegisterScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.registerTitle}>Create Account</Text>
+      <Text style={styles.subtitle}>Create an account so you can explore all the existing jobs</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#aaa"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        placeholderTextColor="#aaa"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Confirm Password"
+        secureTextEntry
+        placeholderTextColor="#aaa"
+      />
+      <TouchableOpacity style={styles.registerButton} onPress={() => alert('Account Created')}>
+        <Text style={styles.registerButtonText}>Sign up</Text>
+      </TouchableOpacity>
+      <Text style={styles.alreadyHaveAccount}>Already have an account</Text>
+      <Text style={styles.orContinueWith}>Or continue with</Text>
+      <View style={styles.socialContainer}>
+        <TouchableOpacity style={styles.socialButton}><AntDesign name="google" size={24} color="black" /></TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}><AntDesign name="facebook-square" size={24} color="black" /></TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}><AntDesign name="apple1" size={24} color="black" /></TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -23,10 +46,18 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
   },
-  title: {
+  registerTitle: {
     fontSize: 28,
     fontWeight: 'bold',
+    color: '#292929',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666666',
     marginBottom: 20,
+    textAlign: 'center',
   },
   input: {
     width: '100%',
@@ -35,20 +66,39 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     marginBottom: 20,
   },
-  button: {
+  registerButton: {
     backgroundColor: '#007bff',
     padding: 15,
     borderRadius: 8,
     width: '100%',
     alignItems: 'center',
   },
-  buttonText: {
+  registerButtonText: {
     color: '#fff',
     fontSize: 16,
   },
-  link: {
-    marginTop: 15,
-    color: '#007bff',
+  alreadyHaveAccount: {
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  orContinueWith: {
+    marginTop: 30,
+    textAlign: 'center',
+    color: '#666666',
+  },
+  socialContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+  },
+  socialButton: {
+    width: 50,
+    height: 50,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 25,
+    marginHorizontal: 10,
   },
 });
 

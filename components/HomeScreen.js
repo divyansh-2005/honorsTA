@@ -1,26 +1,27 @@
-// src/screens/WelcomeScreen.js
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 
-const WelcomeScreen = ({ navigation }) => (
-  <View style={styles.container}>
-    <Image
-      source={require('../assets/img1.png')}
-      style={styles.image}
-      resizeMode="contain"
-    />
-    <Text style={styles.title}>Discover Your Dream Job</Text>
-    <Text style={styles.subtitle}>Explore job roles based on your interests.</Text>
-    <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register')}>
-        <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
+const HomeScreen = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../assets/Work from home.png')} // Replace with your image path
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <Text style={styles.title}>Discover Your Dream Job</Text>
+      <Text style={styles.subtitle}>Explore job roles based on your interests.</Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register')}>
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+      </View>
     </View>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -66,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen;
+export default HomeScreen;
